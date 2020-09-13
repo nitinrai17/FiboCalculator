@@ -8,4 +8,6 @@ RUN npm install
 
 COPY . .
 
+RUN chmod a+x /app/node_modules/.bin/react-scripts
+
 CMD ["npm", "run", "start"] 

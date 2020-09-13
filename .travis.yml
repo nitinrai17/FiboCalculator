@@ -15,8 +15,7 @@ after_success:
     - docker build -t nitinrai17/fibcalculator-worker ./worker
     # login into docker hub 
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    #  take those image and push into the docker hub
-    - docker push 
+    #  take those image and push into the docker hub 
     - docker push  nitinrai17/fibcalculator-client 
     - docker push  nitinrai17/fibcalculator-nginx 
     - docker push  nitinrai17/fibcalculator-server

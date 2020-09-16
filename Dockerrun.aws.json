@@ -1,0 +1,38 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "nitinrai17/fibcalculator-client",
+            "hostname": "client",
+            "essential": false
+        }, 
+        {
+            "name": "server", 
+            "image": "nitinrai17/fibcalculator-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "nitinrai17/fibcalculator-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name":"nginx",
+            "image":"nitinrai17/fibcalculator-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server" ]
+
+        }
+    ]
+
+}
